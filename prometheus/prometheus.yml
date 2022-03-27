@@ -27,7 +27,7 @@ scrape_configs:
   - job_name: 'print-service-jvm-exporter'
     static_configs:
       - targets:
-          - "localhost:9100"
+          - "host.docker.internal:9100"
     relabel_configs:
       - source_labels: [__address__]
         regex: "([^:]+):.+"
@@ -37,7 +37,7 @@ scrape_configs:
   - job_name: 'auth-service-jvm-exporter'
     static_configs:
       - targets:
-          - "localhost:9101"
+          - "host.docker.internal:9101"
     relabel_configs:
       - source_labels: [__address__]
         regex: "([^:]+):.+"
