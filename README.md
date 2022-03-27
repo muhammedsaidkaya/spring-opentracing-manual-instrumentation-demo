@@ -7,7 +7,7 @@ sh build.sh
 
 ## Auth-Service
 * For API-Swagger: http://localhost:9090/v2/api-docs
-* Inject Opentracing Agent as aDependency (Spring Filter)
+* Inject Opentracing Agent as a Dependency (Spring Filter)
 * Exporter Options: Jaeger or Zipkin
 * Custom span can be created.
 
