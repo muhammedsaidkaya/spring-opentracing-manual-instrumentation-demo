@@ -14,12 +14,18 @@ JVM Options for Print Service
 -Dotel.traces.exporter=zipkin
 -Dotel.exporter.zipkin.endpoint=http://localhost:9411/api/v2/spans
 -Dotel.service.name=print-service
+-Dotel.metrics.exporter=prometheus
+-Dotel.exporter.prometheus.port=9100
+-Dotel.exporter.prometheus.host=0.0.0.0
 
 JVM Options for Auth Service (Active Profile:dev)
 -javaagent:opentelemetry-javaagent.jar
 -Dotel.traces.exporter=zipkin
 -Dotel.exporter.zipkin.endpoint=http://localhost:9411/api/v2/spans
 -Dotel.service.name=print-service
+-Dotel.metrics.exporter=prometheus
+-Dotel.exporter.prometheus.port=9101
+-Dotel.exporter.prometheus.host=0.0.0.0
 ```
 
 ## Auth-Service
@@ -37,4 +43,24 @@ JVM Options for Auth Service (Active Profile:dev)
 ## Jaeger
 ```
 http://localhost:16686
+```
+
+## Zipkin
+```
+http://localhost:9411/zipkin/
+```
+
+## Auth-Service Prometheus-JVM Exporter
+```
+http://localhost:9101/metrics
+```
+
+## Print-Service Prometheus-JVM Exporter
+```
+http://localhost:9100/metrics
+```
+
+## Prometheus
+```
+http://localhost:8080/targets
 ```

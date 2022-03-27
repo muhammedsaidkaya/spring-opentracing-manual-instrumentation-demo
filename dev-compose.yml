@@ -24,6 +24,22 @@ services:
     ports:
       - '9411:9411'
 
+  prometheus:
+    image: prom/prometheus:v2.1.0
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+      - '--web.listen-address=:8080'
+    ports:
+      - '8080:8080'
+
 volumes:
   db:
+    driver: local
+  prometheus_data:
     driver: local
