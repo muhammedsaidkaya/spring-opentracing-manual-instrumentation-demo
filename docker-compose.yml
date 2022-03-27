@@ -57,7 +57,3 @@ services:
 volumes:
   db:
     driver: local
-  zookeeper_data:
-    driver: local
-  kafka_data:
-    driver: local
