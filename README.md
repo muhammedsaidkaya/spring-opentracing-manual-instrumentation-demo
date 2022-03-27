@@ -8,6 +8,18 @@ sh build.sh
 # Development
 ```
 sh dev-build.sh
+
+JVM Options for Print Service
+-javaagent:opentelemetry-javaagent.jar
+-Dotel.traces.exporter=zipkin
+-Dotel.exporter.zipkin.endpoint=http://localhost:9411/api/v2/spans
+-Dotel.service.name=print-service
+
+JVM Options for Auth Service (Active Profile:dev)
+-javaagent:opentelemetry-javaagent.jar
+-Dotel.traces.exporter=zipkin
+-Dotel.exporter.zipkin.endpoint=http://localhost:9411/api/v2/spans
+-Dotel.service.name=print-service
 ```
 
 ## Auth-Service
