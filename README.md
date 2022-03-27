@@ -60,3 +60,9 @@ http://localhost:9411/zipkin/
 ```
 http://localhost:8080/targets
 ```
+
+# TODO
+* Run Otel Collector
+* Use Opentelemetry OTLP Exporter
+* Integrate Otel Collector with Jaeger, Zipkin and Prometheus
+
