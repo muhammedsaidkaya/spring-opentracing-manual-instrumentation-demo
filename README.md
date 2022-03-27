@@ -66,3 +66,29 @@ http://localhost:8080/targets
 * Use Opentelemetry OTLP Exporter
 * Integrate Otel Collector with Jaeger, Zipkin and Prometheus
 
+
+# Requests
+
+## POST - Register
+```
+curl --location --request POST 'http://localhost:9090/api/v1.0/person/register' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "identificationNumber": "11111111110",
+    "email": "saidkaya@gmail.com",
+    "password": "password",
+    "name": "Said Kaya",
+    "address": "Adress",
+    "phone": "Phone"
+}'
+```
+
+## GET - GetPersonById
+```
+curl --location --request GET 'http://localhost:9090/api/v1.0/person/4'
+```
+
+## DELETE - DeletePersonById
+```
+curl --location --request DELETE 'http://localhost:9090/api/v1.0/person/4'
+```
