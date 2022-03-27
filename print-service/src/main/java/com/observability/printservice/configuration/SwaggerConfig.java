@@ -1,4 +1,4 @@
-package com.observability.authservice.configuration;
+package com.observability.printservice.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,11 +21,11 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.basePackage("com.observability"))
                 .paths(PathSelectors.regex("/.*"))
                 .build().apiInfo(apiEndPointsInfo());
-
     }
+
     private ApiInfo apiEndPointsInfo() {
         return new ApiInfoBuilder().title("Spring Boot Swagger")
-                .description("Person Api Documentation")
+                .description("Print Api Documentation")
                 .contact(new Contact("Muhammed Said Kaya", "", "saidkaya1239@gmail.com"))
                 .license("Apache 2.0")
                 .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
