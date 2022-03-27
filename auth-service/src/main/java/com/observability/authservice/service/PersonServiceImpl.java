@@ -18,7 +18,6 @@ public class PersonServiceImpl implements PersonService {
     private final ModelMapper modelMapper;
     private final io.opentracing.Tracer tracer;
 
-
     @Override
     public Person register(RegisterRequest registerRequest){
         Person person = modelMapper.map(registerRequest,Person.class);
@@ -29,7 +28,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public Person getPerson(Long id) {
-        Tracer.SpanBuilder spanBuilder = tracer.buildSpan("CustomSpan")
+        Tracer.SpanBuilder spanBuilder = tracer.buildSpan("CustomSpan-Auth-Service")
                 .withTag(Tags.SPAN_KIND.getKey(), Tags.SPAN_KIND_SERVER);
 
         Span span = spanBuilder.start();

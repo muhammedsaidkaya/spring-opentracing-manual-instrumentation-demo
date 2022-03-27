@@ -48,6 +48,7 @@ services:
       - OPENTRACING_JAEGER_UDP_SENDER_PORT=6831
       - OPENTRACING_ZIPKIN_HTTP_SENDER_URL="http://zipkin:9411"
       - SPRING_REDIS_HOST=redis
+      - SERVICES_PRINT_URL=print-service
 
   print-service:
     build: print-service

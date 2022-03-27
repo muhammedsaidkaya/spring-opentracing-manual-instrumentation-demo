@@ -7,6 +7,7 @@ import com.observability.authservice.service.PersonService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -30,6 +31,9 @@ public class PersonController {
     private final PersonService personService;
     private final RestTemplate restTemplate;
 
+    @Value("${services.print.url}")
+    private String printServiceUrl;
+
     @CachePut(value = "people")
     @PostMapping("/register")
     @ApiOperation(value = "New Person adding method")
@@ -50,7 +54,7 @@ public class PersonController {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<String> entity = new HttpEntity<>("Getting user with ID" + id, headers);
-        restTemplate.exchange("http://print-service:9091/api/v1.0/print", HttpMethod.POST, entity , String.class);
+        restTemplate.exchange("http://"+printServiceUrl+":9091/api/v1.0/print", HttpMethod.POST, entity , String.class);
         return personService.getPerson(id);
     }
 
@@ -61,7 +65,7 @@ public class PersonController {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<String> entity = new HttpEntity<String>("Deleting person with id "+ id, headers);
-        restTemplate.exchange("http://print-service:9091/api/v1.0/print", HttpMethod.POST, entity , String.class);
+        restTemplate.exchange("http://"+printServiceUrl+":9091/api/v1.0/print", HttpMethod.POST, entity , String.class);
         personService.delete(id);
     }
 

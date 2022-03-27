@@ -19,6 +19,9 @@ spring:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
 
+services:
+  print:
+    url: localhost
 
 server:
   port: 9090
