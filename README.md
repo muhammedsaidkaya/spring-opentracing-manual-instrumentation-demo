@@ -65,6 +65,7 @@ http://localhost:8080/targets
 * Run Otel Collector
 * Use Opentelemetry OTLP Exporter
 * Integrate Otel Collector with Jaeger, Zipkin and Prometheus
+* OpenTelemetry Manual Instrumentation https://opentelemetry.io/docs/instrumentation/java/manual/
 
 
 # Requests
